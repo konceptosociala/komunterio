@@ -1,0 +1,12 @@
+Scene(
+    entities: [
+        (
+            name: "hero",
+            material: "metal",
+        ),
+        (
+            name: "monster",
+            material: "plastic",
+        ),
+    ],
+)

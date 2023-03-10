@@ -5,3 +5,5 @@ edition = "2021"
 
 [dependencies]
 despero = { git = "https://github.com/konceptosociala/despero" }
+serde = { version = "1.0.152", features = ["derive"] }
+ron = "0.8.0"
