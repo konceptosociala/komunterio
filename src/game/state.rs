@@ -1,7 +1,7 @@
 #[derive(Debug)]
 pub enum GameState {    
     Splashscreen,
-    MainMenu(bool, bool),
+    MainMenu(bool, bool, bool),
     
     Loading,
     Game,
