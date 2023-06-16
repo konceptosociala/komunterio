@@ -1,10 +1,11 @@
 use despero::prelude::*;
 
 pub mod menu;
+pub mod settings;
 pub mod splashscreen;
 
 pub fn set_gui_style(
-    gui_ctx: Read<EventHandler<GuiContext>>,
+    events: Read<Events>,
 ){
     use gui::{
         TextStyle::*,
@@ -12,6 +13,7 @@ pub fn set_gui_style(
         FontId,
     };
     
+    let gui_ctx = events.get_handler::<GuiContext>().unwrap();
     if let Some(ctx) = gui_ctx.read() {
         let mut style = (*ctx.style()).clone();
 

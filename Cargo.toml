@@ -6,6 +6,9 @@ edition = "2021"
 [dependencies]
 # despero = { git = "https://github.com/konceptosociala/despero" }
 despero = { path = "../despero" }
+hecs = { package = "despero-hecs", version = "0.9.1-f", features = ["column-serialize", "macros"] }
 
 serde = { version = "1.0.152", features = ["derive"] }
 ron = "0.8.0"
+toml = "0.7.4"
+structstruck = "0.4.1"

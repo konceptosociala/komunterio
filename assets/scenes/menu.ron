@@ -1,0 +1,33 @@
+// menu.ron
+Scene(
+    assets: AssetManager(
+        textures: [
+            Texture(
+                path: "",
+                filter: Linear,
+            ),
+        ],
+        materials: [],
+    ),
+    entities: [
+        Entity(
+            components: [
+                {
+                    "component": "Transform",
+                    "translation": [
+                        0.0,
+                        0.0,
+                        0.0,
+                    ],
+                    "rotation": [
+                        0.0,
+                        0.0,
+                        0.0,
+                        1.0,
+                    ],
+                    "scale": 1.0,
+                },
+            ],
+        ),
+    ],
+)

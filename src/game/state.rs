@@ -1,7 +1,14 @@
+use crate::ui::menu::{ChapterSelectDialog, SaveLoadDialog, SettingsDialog};
+
 #[derive(Debug)]
 pub enum GameState {    
     Splashscreen,
-    MainMenu(bool, bool, bool),
+
+    MainMenu(
+        ChapterSelectDialog, 
+        SaveLoadDialog, 
+        SettingsDialog
+    ),
     
     Loading,
     Game,

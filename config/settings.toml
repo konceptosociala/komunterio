@@ -1,0 +1,12 @@
+[video]
+resolution = "R1920x1080"
+gui_scale = "Normal"
+
+[sound]
+music_volume = 100
+sound_volume = 100
+voice_volume = 100
+
+[game]
+
+[controls]
