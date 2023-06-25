@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
-use despero::prelude::*;
-use despero::impl_save_load;
+use sonja::prelude::*;
+use sonja::impl_save_load;
 
 use crate::game::player::{Player, PlayerCamera, Health};
 
@@ -16,7 +16,8 @@ impl SaveLoader {
 }
 
 impl_save_load!(
-    SaveLoader,
+    loader: SaveLoader,
+    components: [
         // Default components
         AssetHandle<'M'>,
         AssetHandle<'S'>,
@@ -32,4 +33,5 @@ impl_save_load!(
         Player,
         PlayerCamera,
         Health
+    ]
 );

@@ -1,6 +1,7 @@
 [video]
-resolution = "R1920x1080"
-gui_scale = "Normal"
+resolution = "System"
+gui_scale = "Large"
+fullscreen = true
 
 [sound]
 music_volume = 100

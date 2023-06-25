@@ -3,13 +3,13 @@ mod ui;
 mod scene;
 mod setup;
 
-use despero::prelude::*;
+use sonja::prelude::*;
 
 use setup::*;
 use ui::menu::MainMenuExtension;
 
 fn main() {    
-    Despero::init(
+    Sonja::init(
         WindowBuilder {
             title: Some("Komunterio"),
             fullscreen: Some(true),

@@ -1,5 +1,5 @@
 use std::time::Duration;
-use despero::prelude::*;
+use sonja::prelude::*;
 
 use crate::game::state::GameState;
 

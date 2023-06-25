@@ -4,8 +4,7 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-# despero = { git = "https://github.com/konceptosociala/despero" }
-despero = { path = "../despero" }
+sonja = { path = "../sonja" }
 hecs = { package = "despero-hecs", version = "0.9.1-f", features = ["column-serialize", "macros"] }
 
 serde = { version = "1.0.152", features = ["derive"] }

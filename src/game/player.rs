@@ -1,5 +1,6 @@
-use despero::prelude::*;
 use serde::{Serialize, Deserialize};
+use sonja::prelude::*;
+use sonja::audio_storage;
 
 pub type UserID = u32;
 
@@ -18,6 +19,7 @@ pub struct PlayerCameraBundle {
     pub camera: Camera,
     pub internal_cast: AudioCast,
     pub listener: AudioListener,
+    pub audio_storage: AudioStorage,
     pub transform: Transform,
 }
 
@@ -34,6 +36,7 @@ impl PlayerCameraBundle {
                 .build(),
             internal_cast: AudioCast::new(audio_manager),
             listener: AudioListener::new(audio_manager),
+            audio_storage: audio_storage![],
             transform: Transform::default(),
         }
     }

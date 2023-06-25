@@ -1,4 +1,4 @@
-use despero::prelude::*;
+use sonja::prelude::*;
 
 pub mod menu;
 pub mod settings;
@@ -25,21 +25,28 @@ pub fn set_gui_style(
           (Monospace, FontId::new(14.0, Proportional)),
           (Button, FontId::new(14.0, Proportional)),
           (Small, FontId::new(10.0, Proportional)),
-        ].into();
-        
-        let mut fonts = gui::FontDefinitions::default();
-        
-        fonts.font_data.insert(
-            "GNUTypewriter".to_owned(), 
-            gui::FontData::from_static(include_bytes!("../../assets/fonts/gnu_typewriter/GNUTypewriter.ttf")),
-        );
-        
-        fonts.families
-            .get_mut(&gui::FontFamily::Proportional)
-            .unwrap()
-            .insert(0, "GNUTypewriter".to_owned());
+        ].into();        
             
         ctx.set_style(style);
-        ctx.set_fonts(fonts);
     }
+}
+
+pub fn set_fonts_with_scale(ctx: &gui::Context, scale: f32) {
+    let mut fonts = gui::FontDefinitions::default();
+        
+    fonts.font_data.insert(
+        "GNUTypewriter".to_owned(), 
+        gui::FontData::from_static(include_bytes!("../../assets/fonts/gnu_typewriter/GNUTypewriter.ttf"))
+            .tweak(gui::FontTweak {
+                scale,
+                ..Default::default()
+            }),
+    );
+    
+    fonts.families
+        .get_mut(&gui::FontFamily::Proportional)
+        .unwrap()
+        .insert(0, "GNUTypewriter".to_owned());
+
+    ctx.set_fonts(fonts);
 }

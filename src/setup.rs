@@ -1,6 +1,4 @@
-use std::fs::{File, read_to_string};
-
-use despero::prelude::*;
+use sonja::prelude::*;
 
 use crate::{
     ui::{
@@ -10,7 +8,8 @@ use crate::{
             SaveLoadDialog, 
             SettingsDialog
         }, 
-        settings::Settings,
+        settings::{Settings, ApplySettings, GuiScale},
+        set_fonts_with_scale,
     }, 
     game::state::GameState,
 };
@@ -18,44 +17,18 @@ use crate::{
 pub struct SetupExtension;
 
 impl Extension for SetupExtension {
-    fn apply(&self, app: &mut Despero) {
+    fn apply(&self, app: &mut Sonja) {
         app
             .add_setup_system(main_setup)
+            .add_system(apply_settings)
             .add_system(set_gui_style);
     }
 }
 
 fn main_setup(
     mut cmd: Write<CommandBuffer>,
-) -> DesperoResult<()> {    
-    let settings = {
-        use std::io::Write;
-
-        let new_blank = || -> DesperoResult<Settings> {
-            let mut file = File::create("config/settings.toml")?;
-            let settings = Settings::default();
-            
-            let ser = toml::to_string_pretty(&settings).unwrap();
-            file.write(ser.as_bytes())?;
-
-            Ok(settings)
-        };
-
-        let settings = {
-            if let Ok(config) = read_to_string("config/settings.toml") {
-                match toml::from_str(&config) {
-                    Ok(settings) => settings,
-                    _ => new_blank()?,
-                } 
-            } else {
-                new_blank()?
-            }
-        };
-
-        settings
-    };
-
-    cmd.spawn((settings,));
+) -> SonjaResult<()> {    
+    cmd.spawn((Settings::load("config/settings.toml")?, ApplySettings));
     
     cmd.spawn((GameState::MainMenu(
         ChapterSelectDialog::default(),
@@ -64,4 +37,36 @@ fn main_setup(
     ),));
 
     Ok(())
+}
+
+fn apply_settings(
+    settings_world: SubWorld<(&Settings, &ApplySettings)>,
+    renderer: Read<Renderer>,
+    events: Read<Events>,
+    mut cmd: Write<CommandBuffer>,
+){
+    let mut settings = settings_world.query::<(&Settings, &ApplySettings)>();
+    let gui_ctx = events.get_handler::<GuiContext>().unwrap();
+
+    if let Some((e, (settings, _))) = settings.iter().next() {
+        cmd.remove_one::<ApplySettings>(e);
+
+        // Set window mode
+        let window = renderer.get_window();
+        window.lock().unwrap().set_fullscreen(match settings.video.fullscreen {
+            true => Some(WinitFullscreen::Borderless(None)),
+            false => None,
+        });
+
+        // Set resolution
+
+        // Set gui scale
+        if let Some(ctx) = gui_ctx.read() {
+            set_fonts_with_scale(&ctx, match settings.video.gui_scale {
+                GuiScale::Large => 1.5,
+                GuiScale::Normal => 1.25,
+                GuiScale::Tiny => 1.0,
+            });
+        }
+    }
 }
