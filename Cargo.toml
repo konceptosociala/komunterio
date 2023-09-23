@@ -4,10 +4,11 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-sonja = { path = "../sonja" }
+flatbox = { path = "../flatbox" }
 hecs = { package = "despero-hecs", version = "0.9.1-f", features = ["column-serialize", "macros"] }
 
 serde = { version = "1.0.152", features = ["derive"] }
+serde_closure = "0.3.3"
 ron = "0.8.0"
 toml = "0.7.4"
 structstruck = "0.4.1"

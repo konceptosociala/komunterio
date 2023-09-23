@@ -1,6 +1,6 @@
 [video]
 resolution = "System"
-gui_scale = "Normal"
+gui_scale = "Large"
 fullscreen = true
 
 [sound]

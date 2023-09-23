@@ -1,5 +1,5 @@
 use std::time::Duration;
-use sonja::prelude::*;
+use flatbox::prelude::*;
 
 use crate::game::state::GameState;
 

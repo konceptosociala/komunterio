@@ -4,7 +4,7 @@ use std::fs::{File, read_to_string};
 use std::io::Write;
 
 use serde::{Serialize, Deserialize};
-use sonja::prelude::*;
+use flatbox::prelude::*;
 
 pub struct ApplySettings;
 
@@ -43,7 +43,7 @@ structstruck::strike! {
 }
 
 impl Settings {
-    pub fn load(path: impl AsRef<Path> + Copy) -> SonjaResult<Self> {
+    pub fn load(path: impl AsRef<Path> + Copy) -> FlatboxResult<Self> {
         let settings = {
             if let Ok(config) = read_to_string(path) {
                 match toml::from_str(&config) {
@@ -58,7 +58,7 @@ impl Settings {
         Ok(settings)
     }
 
-    pub fn new_blank(path: impl AsRef<Path>) -> SonjaResult<Self> {
+    pub fn new_blank(path: impl AsRef<Path>) -> FlatboxResult<Self> {
         let mut file = File::create(path)?;
         let settings = Settings::default();
         

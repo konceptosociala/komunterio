@@ -1,6 +1,6 @@
 use std::fs::File;
 use std::io::Write as IoWrite;
-use sonja::prelude::*;
+use flatbox::prelude::*;
 
 use crate::game::state::*;
 use crate::ui::settings::Settings;
@@ -36,7 +36,7 @@ pub enum SettingsTab {
 pub struct MainMenuExtension;
 
 impl Extension for MainMenuExtension {
-    fn apply(&self, app: &mut Sonja) {
+    fn apply(&self, app: &mut Flatbox) {
         app
             .add_setup_system(setup_main_menu)
             .add_system(main_menu_system);
@@ -71,7 +71,7 @@ fn main_menu_system(
     let size = window.lock().unwrap().inner_size();
     
     let gui_ctx = events.get_handler::<GuiContext>().unwrap();
-    let mut app_exit = events.get_handler::<AppExit>().unwrap();
+    let mut app_exit = events.get_handler_mut::<AppExit>().unwrap();
     if let Some(ctx) = gui_ctx.read() {
         if ctx.input().key_pressed(gui::Key::Escape) {
             if let GameState::MainMenu(ref mut p, ref mut l, ref mut s) = *state {

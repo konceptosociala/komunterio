@@ -1,6 +1,6 @@
 use serde::{Serialize, Deserialize};
-use sonja::prelude::*;
-use sonja::impl_save_load;
+use flatbox::prelude::*;
+use flatbox::impl_save_load;
 
 use crate::game::player::{Player, PlayerCamera, Health};
 

@@ -3,16 +3,16 @@ mod ui;
 mod scene;
 mod setup;
 
-use sonja::prelude::*;
+use flatbox::prelude::*;
 
 use setup::*;
 use ui::menu::MainMenuExtension;
 
 fn main() {    
-    Sonja::init(
+    Flatbox::init(
         WindowBuilder {
-            title: Some("Komunterio"),
-            fullscreen: Some(true),
+            title: "Komunterio",
+            fullscreen: true,
             
             ..Default::default()
         }

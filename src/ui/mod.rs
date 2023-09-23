@@ -1,4 +1,4 @@
-use sonja::prelude::*;
+use flatbox::prelude::*;
 
 pub mod menu;
 pub mod settings;

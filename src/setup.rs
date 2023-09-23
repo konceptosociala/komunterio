@@ -1,4 +1,4 @@
-use sonja::prelude::*;
+use flatbox::prelude::*;
 
 use crate::{
     ui::{
@@ -17,7 +17,7 @@ use crate::{
 pub struct SetupExtension;
 
 impl Extension for SetupExtension {
-    fn apply(&self, app: &mut Sonja) {
+    fn apply(&self, app: &mut Flatbox) {
         app
             .add_setup_system(main_setup)
             .add_system(apply_settings)
@@ -27,7 +27,7 @@ impl Extension for SetupExtension {
 
 fn main_setup(
     mut cmd: Write<CommandBuffer>,
-) -> SonjaResult<()> {    
+) -> FlatboxResult<()> {    
     cmd.spawn((Settings::load("config/settings.toml")?, ApplySettings));
     
     cmd.spawn((GameState::MainMenu(
