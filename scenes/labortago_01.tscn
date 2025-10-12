@@ -1,0 +1,167 @@
+[gd_scene load_steps=14 format=3 uid="uid://dobq8bffp1gm"]
+
+[ext_resource type="Material" uid="uid://5ajic8yjvngn" path="res://textures/asphalt_023/asphalt_023.material" id="1_mdfde"]
+[ext_resource type="Material" uid="uid://cqeddrhh5khu8" path="res://models/modular_building_01/modular_building_01.material" id="3_6yqwl"]
+[ext_resource type="ArrayMesh" uid="uid://diymfid001cet" path="res://models/modular_building_01/concrete_door.obj" id="4_vr2hu"]
+[ext_resource type="ArrayMesh" uid="uid://vbcl4plwbsnx" path="res://models/modular_building_01/concrete_double_window.obj" id="5_5jxsn"]
+[ext_resource type="Texture2D" uid="uid://cag6vo3bsto65" path="res://textures/graffiti/graffiti_01.png" id="5_mdfde"]
+[ext_resource type="ArrayMesh" uid="uid://b8a46b1d7y02e" path="res://models/modular_building_01/concrete_small_window_1.obj" id="6_v616e"]
+[ext_resource type="ArrayMesh" uid="uid://4eo4imcm2xst" path="res://models/modular_building_01/pillar_concrete_1.obj" id="7_v616e"]
+[ext_resource type="ArrayMesh" uid="uid://dh2legejr84ne" path="res://models/modular_building_01/roof.obj" id="8_xua1a"]
+[ext_resource type="ArrayMesh" uid="uid://bqu7iog0uegre" path="res://models/modular_building_01/wall_concrete_1.obj" id="9_xua1a"]
+
+[sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_gn88m"]
+ground_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_tyhie"]
+sky_material = SubResource("PhysicalSkyMaterial_gn88m")
+radiance_size = 2
+
+[sub_resource type="Environment" id="Environment_f8w8m"]
+background_mode = 2
+background_intensity = 100000.0
+sky = SubResource("Sky_tyhie")
+tonemap_mode = 3
+tonemap_white = 8.0
+ssao_enabled = true
+ssao_detail = 2.0
+sdfgi_enabled = true
+sdfgi_bounce_feedback = 0.9
+glow_enabled = true
+glow_normalized = true
+glow_bloom = 0.2
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.01
+volumetric_fog_gi_inject = 1.14
+volumetric_fog_anisotropy = 0.7
+volumetric_fog_sky_affect = 0.295
+adjustment_saturation = 1.17
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_qo5hu"]
+exposure_multiplier = 3.069
+auto_exposure_scale = 0.22
+auto_exposure_speed = 0.8
+dof_blur_far_distance = 1.44
+dof_blur_near_distance = 0.01
+auto_exposure_min_sensitivity = 8.01
+
+[node name="Labortago01" type="Node3D"]
+
+[node name="CSGCombiner3D" type="CSGCombiner3D" parent="."]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="CSGCombiner3D"]
+size = Vector3(10, 0.1, 10)
+material = ExtResource("1_mdfde")
+
+[node name="PlayerSize" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0057219863, 1, -1.79861)
+visible = false
+size = Vector3(0.8, 1.87, 0.8)
+
+[node name="DecalLiberon" type="Decal" parent="."]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 3.924975, 2.4135146, -0.22331716)
+size = Vector3(2.6210938, 2, 1.7041016)
+texture_albedo = ExtResource("5_mdfde")
+
+[node name="ConcreteDoor" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.187, 0, 0)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("4_vr2hu")
+
+[node name="ConcreteSmallWindow1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.187, 3.542, 0)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("6_v616e")
+
+[node name="ConcreteDoubleWindow3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -4.762, 3.542, 0.1496777)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("5_5jxsn")
+
+[node name="ConcreteDoubleWindow4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 2.388, 3.542, 0.1496777)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("5_5jxsn")
+
+[node name="PillarConcrete1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 1.7801554, 2.3841858e-07, -2.464944)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("7_v616e")
+
+[node name="Roof" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.6069264, 3.6174772, -2.9950702)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("8_xua1a")
+
+[node name="PillarConcrete2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.355, 0, -2.465)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("7_v616e")
+
+[node name="WallConcrete1" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 2.388, 0, 0.15)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("9_xua1a")
+
+[node name="WallConcrete2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -4.762, 0, 0.15)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("9_xua1a")
+
+[node name="ConcreteSmallWindow2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.187, 7.116, 0)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("6_v616e")
+
+[node name="ConcreteDoubleWindow5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -4.762, 7.116, 0.1496777)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("5_5jxsn")
+
+[node name="ConcreteDoubleWindow6" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 2.388, 7.116, 0.1496777)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("5_5jxsn")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_f8w8m")
+camera_attributes = SubResource("CameraAttributesPractical_qo5hu")
+
+[node name="Sun3" type="DirectionalLight3D" parent="WorldEnvironment"]
+transform = Transform3D(-0.8191519, 0.4568708, -0.34678382, 1.8315284e-08, 0.60459924, 0.7965298, 0.5735764, 0.65247905, -0.49525872, -4.86868, 8.33126, 2.18251)
+light_energy = 0.6
+shadow_enabled = true
+
+[node name="ReflectionProbe" type="ReflectionProbe" parent="WorldEnvironment"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 49.8991, 25.834, -30.0061)
+size = Vector3(10000, 10000, 1000)
+
+[node name="ConcreteSmallWindow3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.187, 10.697, 0)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("6_v616e")
+
+[node name="ConcreteDoubleWindow7" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -4.762, 10.697, 0.1496777)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("5_5jxsn")
+
+[node name="ConcreteDoubleWindow8" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 2.388, 10.697, 0.1496777)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("5_5jxsn")
+
+[node name="WallConcrete3" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.119594e-10, 0, -0.0139999995, 0, 0.0139999995, 0, 0.0139999995, 0, -6.119594e-10, 6.202, 0, -0.073)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("9_xua1a")
+
+[node name="WallConcrete4" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.119594e-10, 0, -0.0139999995, 0, 0.0139999995, 0, 0.0139999995, 0, -6.119594e-10, 6.202, 3.542, -0.073)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("9_xua1a")
+
+[node name="WallConcrete5" type="MeshInstance3D" parent="."]
+transform = Transform3D(-6.119594e-10, 0, -0.0139999995, 0, 0.0139999995, 0, 0.0139999995, 0, -6.119594e-10, 6.202, 7.116, -0.073)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("9_xua1a")

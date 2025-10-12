@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://te6f82b6reuq"]
+
+[ext_resource type="PackedScene" uid="uid://dcotn0ylh8yw2" path="res://models/door_01/door_01.glb" id="1_8biep"]
+[ext_resource type="Material" uid="uid://ckiy4khk0h6f6" path="res://models/door_01/door_01.material" id="2_a0c5k"]
+
+[node name="door_01" instance=ExtResource("1_8biep")]
+
+[node name="door_heavy_metal" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_a0c5k")
+
+[node name="door_frame_metal" parent="." index="1"]
+surface_material_override/0 = ExtResource("2_a0c5k")
