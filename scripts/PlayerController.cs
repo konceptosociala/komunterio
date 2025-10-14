@@ -2,6 +2,7 @@ using Godot;
 
 public partial class PlayerController : CharacterBody3D
 {
+	[Export] public bool Blocked = false;
 	[Export] public float Speed = 5.0f;
 	[Export] public float MouseSensitivity = 0.002f;
 	[Export] public float JumpVelocity = 4.5f;
@@ -18,6 +19,8 @@ public partial class PlayerController : CharacterBody3D
 
 	public override void _Input(InputEvent @event)
 	{
+		if (Blocked) return;
+		
 		if (@event is InputEventMouseMotion motion)
 		{
 			lookRotation.X -= motion.Relative.Y * MouseSensitivity;
@@ -30,6 +33,8 @@ public partial class PlayerController : CharacterBody3D
 
 	public override void _PhysicsProcess(double delta)
 	{
+		if (Blocked) return;
+
 		Vector3 velocity = Velocity;
 
 		// Gravity

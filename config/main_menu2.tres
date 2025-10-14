@@ -1,0 +1,8 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://bl6acvg1dkkw5"]
+
+[ext_resource type="FontFile" uid="uid://dgs2cvvybcjsa" path="res://fonts/dse-typewriter-font.ttf" id="1_aid1o"]
+
+[resource]
+font = ExtResource("1_aid1o")
+font_size = 21
+outline_size = 3

@@ -1,4 +1,7 @@
-[gd_scene format=3 uid="uid://dux3hcirsnu5y"]
+[gd_scene load_steps=3 format=3 uid="uid://dux3hcirsnu5y"]
+
+[ext_resource type="LabelSettings" uid="uid://bx0a7dgamjry5" path="res://config/main_menu1.tres" id="1_l6cm7"]
+[ext_resource type="LabelSettings" uid="uid://bl6acvg1dkkw5" path="res://config/main_menu2.tres" id="2_ekxnf"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -7,3 +10,62 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 9
+anchor_bottom = 1.0
+offset_right = 311.0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Heading" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 143.0
+offset_right = 277.0
+offset_bottom = 192.0
+text = "komunterio"
+label_settings = ExtResource("1_l6cm7")
+
+[node name="ButtonNewGame" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 263.0
+offset_right = 121.0
+offset_bottom = 292.0
+text = "New game"
+label_settings = ExtResource("2_ekxnf")
+
+[node name="ButtonContinue" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 292.0
+offset_right = 121.0
+offset_bottom = 321.0
+text = "Continue"
+label_settings = ExtResource("2_ekxnf")
+
+[node name="ButtonOptions" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 321.0
+offset_right = 149.0
+offset_bottom = 350.0
+text = "Options"
+label_settings = ExtResource("2_ekxnf")
+
+[node name="ButtonQuit" type="Label" parent="."]
+layout_mode = 0
+offset_left = 37.0
+offset_top = 350.0
+offset_right = 149.0
+offset_bottom = 379.0
+text = "Quit"
+label_settings = ExtResource("2_ekxnf")
+
+[node name="Window" type="Window" parent="."]
+oversampling_override = 1.0
+initial_position = 1
+size = Vector2i(670, 335)
+visible = false

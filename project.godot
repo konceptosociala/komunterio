@@ -24,7 +24,7 @@ project/assembly_name="Komunterio"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/addons/debug_menu/plugin.cfg", "res://addons/debug_menu/plugin.cfg", "res://addons/instant-realistic-light/plugin.cfg")
+enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/instant-realistic-light/plugin.cfg")
 
 [input]
 

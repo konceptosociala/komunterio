@@ -5,7 +5,7 @@
 [resource]
 font = ExtResource("1_wk1nu")
 font_size = 64
-font_color = Color(0.75, 1, 0, 1)
+font_color = Color(1, 0.65000004, 0.25, 1)
 outline_color = Color(0, 0, 0, 1)
 shadow_size = 0
 shadow_offset = Vector2(0, 0)

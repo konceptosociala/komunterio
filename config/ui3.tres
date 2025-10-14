@@ -1,0 +1,11 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dsnsxgb3aopa4"]
+
+[ext_resource type="FontFile" uid="uid://cj6v28466a35e" path="res://fonts/BBHSansBogle-Regular.ttf" id="1_mhld4"]
+
+[resource]
+font = ExtResource("1_mhld4")
+font_size = 96
+font_color = Color(1, 0.65000004, 0.25, 1)
+outline_color = Color(0, 0, 0, 1)
+shadow_size = 0
+shadow_offset = Vector2(0, 0)
