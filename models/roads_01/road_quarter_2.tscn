@@ -1,0 +1,11 @@
+[gd_scene load_steps=4 format=3 uid="uid://gy2llgk7nsxc"]
+
+[ext_resource type="PackedScene" uid="uid://c3k8i17ryttkm" path="res://models/roads_01/road_quarter.glb" id="1_tcojx"]
+[ext_resource type="Material" uid="uid://do6t0k38xbiks" path="res://models/roads_01/road_01_asphalt.material" id="2_yiknf"]
+[ext_resource type="Material" uid="uid://66oxs0ymlf4j" path="res://models/roads_01/road_01_boreder.material" id="3_3asxr"]
+
+[node name="road_quarter2" instance=ExtResource("1_tcojx")]
+
+[node name="road_quarter" parent="." index="0"]
+surface_material_override/0 = ExtResource("2_yiknf")
+surface_material_override/1 = ExtResource("3_3asxr")

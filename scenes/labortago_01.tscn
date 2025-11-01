@@ -1,24 +1,28 @@
-[gd_scene load_steps=23 format=3 uid="uid://dobq8bffp1gm"]
+[gd_scene load_steps=26 format=3 uid="uid://dobq8bffp1gm"]
 
 [ext_resource type="Script" uid="uid://b24tebkwwyb35" path="res://scripts/Utils.cs" id="1_4tuta"]
-[ext_resource type="Material" uid="uid://5ajic8yjvngn" path="res://textures/asphalt_023/asphalt_023.material" id="1_mdfde"]
+[ext_resource type="Material" uid="uid://ckbqmmvj6olf5" path="res://textures/rails_001/rails_001.material" id="2_ed4hq"]
 [ext_resource type="Material" uid="uid://cqeddrhh5khu8" path="res://models/modular_building_01/modular_building_01.material" id="3_6yqwl"]
-[ext_resource type="ArrayMesh" uid="uid://diymfid001cet" path="res://models/modular_building_01/concrete_door.obj" id="4_vr2hu"]
-[ext_resource type="ArrayMesh" uid="uid://vbcl4plwbsnx" path="res://models/modular_building_01/concrete_double_window.obj" id="5_5jxsn"]
+[ext_resource type="Material" uid="uid://bihbc0u2qks1r" path="res://models/tramvai/textures/tramvai.material" id="3_101os"]
+[ext_resource type="ArrayMesh" uid="uid://ds6b0og8onq6a" path="res://models/tramvai/source/tramvai.obj" id="4_ed4hq"]
 [ext_resource type="Texture2D" uid="uid://cag6vo3bsto65" path="res://textures/graffiti/graffiti_01.png" id="5_mdfde"]
-[ext_resource type="ArrayMesh" uid="uid://b8a46b1d7y02e" path="res://models/modular_building_01/concrete_small_window_1.obj" id="6_v616e"]
-[ext_resource type="ArrayMesh" uid="uid://4eo4imcm2xst" path="res://models/modular_building_01/pillar_concrete_1.obj" id="7_v616e"]
-[ext_resource type="ArrayMesh" uid="uid://dh2legejr84ne" path="res://models/modular_building_01/roof.obj" id="8_xua1a"]
-[ext_resource type="ArrayMesh" uid="uid://bqu7iog0uegre" path="res://models/modular_building_01/wall_concrete_1.obj" id="9_xua1a"]
+[ext_resource type="Material" uid="uid://d3nou7ejm6j34" path="res://textures/asphalt_022/asphalt_022.material" id="9_6we36"]
+[ext_resource type="ArrayMesh" uid="uid://dyf0xoypyv1vl" path="res://models/modular_building_01/aligned/concrete_double_window.obj" id="9_101os"]
 [ext_resource type="Script" uid="uid://b15gd752xx3rs" path="res://scripts/PlayerController.cs" id="10_3sqfs"]
+[ext_resource type="ArrayMesh" uid="uid://cfqp4et8t17ka" path="res://models/modular_building_01/aligned/concrete_small_window_1.obj" id="11_ed4hq"]
 [ext_resource type="LabelSettings" uid="uid://07qabtetktu1" path="res://config/ui1.tres" id="11_f2wsi"]
 [ext_resource type="LabelSettings" uid="uid://b6rxw1ku26aj" path="res://config/ui2.tres" id="12_4tuta"]
 [ext_resource type="LabelSettings" uid="uid://dsnsxgb3aopa4" path="res://config/ui3.tres" id="13_0ey7o"]
 [ext_resource type="Material" uid="uid://bdkd4mg8ucg4" path="res://shaders/scary_dark_vignette.material" id="14_0ey7o"]
+[ext_resource type="ArrayMesh" uid="uid://ce4fw5md3mknk" path="res://models/modular_building_01/aligned/concrete_door.obj" id="15_0ey7o"]
 [ext_resource type="LabelSettings" uid="uid://migefox5wpl7" path="res://config/fade_label1.tres" id="15_6we36"]
+[ext_resource type="ArrayMesh" uid="uid://ddlg1rjlq8ka1" path="res://models/modular_building_01/aligned/pillar_concrete_1.obj" id="16_6we36"]
 [ext_resource type="Script" uid="uid://mx3bxy1e5ooh" path="res://scripts/LabortagoGameState.cs" id="16_rxh3l"]
+[ext_resource type="ArrayMesh" uid="uid://yq7yterc6kf8" path="res://models/modular_building_01/aligned/concrete_wall_1.obj" id="20_0gm3u"]
+[ext_resource type="ArrayMesh" uid="uid://bb5a1namhj7bl" path="res://models/modular_building_01/aligned/brick_door.obj" id="20_d7c4s"]
 
 [sub_resource type="PhysicalSkyMaterial" id="PhysicalSkyMaterial_gn88m"]
+rayleigh_color = Color(0.498, 0.5337, 0.6, 1)
 ground_color = Color(0, 0, 0, 1)
 
 [sub_resource type="Sky" id="Sky_tyhie"]
@@ -61,16 +65,8 @@ auto_exposure_min_sensitivity = 8.01
 
 [node name="Scene3d" type="Node3D" parent="."]
 
-[node name="CSGCombiner3D" type="CSGCombiner3D" parent="Scene3d"]
-use_collision = true
-
-[node name="CSGBox3D" type="CSGBox3D" parent="Scene3d/CSGCombiner3D"]
-size = Vector3(10, 0.1, 10)
-material = ExtResource("1_mdfde")
-
 [node name="PlayerSize" type="CSGBox3D" parent="Scene3d"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0057219863, 1, -1.79861)
-visible = false
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.794277, 1.4000001, -25.223372)
 size = Vector3(0.8, 1.87, 0.8)
 
 [node name="DecalLiberon" type="Decal" parent="Scene3d"]
@@ -80,126 +76,743 @@ texture_albedo = ExtResource("5_mdfde")
 
 [node name="Building1" type="Node3D" parent="Scene3d"]
 
-[node name="ConcreteSmallWindow3" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.187, 10.697, 0)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("6_v616e")
-skeleton = NodePath("../../..")
+[node name="ConcreteDoubleWindow" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 5.8, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow4" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 9.300001, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow5" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 12.8, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow6" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 16.300001, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
 
 [node name="ConcreteDoubleWindow7" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -4.762, 10.697, 0.1496777)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("5_5jxsn")
-skeleton = NodePath("../../..")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 19.800001, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
 
 [node name="ConcreteDoubleWindow8" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 2.388, 10.697, 0.1496777)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6, 23.3, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteWall1" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 2.3, -9.5)
 material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("5_5jxsn")
+mesh = ExtResource("20_0gm3u")
 skeleton = NodePath("../../..")
 
-[node name="WallConcrete3" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(-6.119594e-10, 0, -0.0139999995, 0, 0.0139999995, 0, 0.0139999995, 0, -6.119594e-10, 6.202, 0, -0.073)
+[node name="ConcreteWall47" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, -8.742278e-08, 3.821371e-15, 0, -4.371139e-08, -1, 8.742278e-08, -1, 4.371139e-08, 0.15, 3.8, -10.55)
 material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("9_xua1a")
+mesh = ExtResource("20_0gm3u")
 skeleton = NodePath("../../..")
 
-[node name="WallConcrete5" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(-6.119594e-10, 0, -0.0139999995, 0, 0.0139999995, 0, 0.0139999995, 0, -6.119594e-10, 6.202, 7.116, -0.073)
+[node name="ConcreteWall48" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 3.65, 3.8, -10.5)
 material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("9_xua1a")
+mesh = ExtResource("20_0gm3u")
 skeleton = NodePath("../../..")
 
-[node name="WallConcrete4" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(-6.119594e-10, 0, -0.0139999995, 0, 0.0139999995, 0, 0.0139999995, 0, -6.119594e-10, 6.202, 3.542, -0.073)
+[node name="ConcreteWall8" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5999998, 2.3, -9.3)
 material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("9_xua1a")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteDoubleWindow9" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 5.8, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow10" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 9.300001, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow11" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 12.8, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow12" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 16.300001, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow13" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 19.800001, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow14" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 23.3, -9.3)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteWall9" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.4, 2.3, -9.3)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteDoubleWindow15" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.249999, 5.8, -4.05)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow16" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.249999, 9.300001, -4.05)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow17" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.249999, 12.8, -4.05)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow18" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.249999, 16.300001, -4.05)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow19" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.249999, 19.800001, -4.05)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow20" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.249999, 23.3, -4.05)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteWall24" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.249999, 2.3000002, -4.05)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall2" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 5.7999997, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall3" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 9.3, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall4" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 12.8, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall5" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 16.3, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall6" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 19.800001, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall7" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.1, 23.300001, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall10" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.900001, 2.3, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall11" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.900001, 5.7999997, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall12" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.900001, 9.3, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall13" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.900001, 12.8, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall14" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.900001, 16.3, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall15" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.900001, 19.800001, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall16" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.900001, 23.300001, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall17" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 2.3000002, -7.55)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall18" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 5.7999997, -7.55)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall19" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 9.3, -7.55)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall20" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 12.8, -7.55)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall21" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 16.3, -7.55)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall22" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 19.800001, -7.55)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall23" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 23.300001, -7.55)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall25" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 2.3000002, -0.5500002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall26" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 5.7999997, -0.5500002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall27" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 9.3, -0.5500002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall28" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 12.8, -0.5500002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall29" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 16.3, -0.5500002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall30" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 19.800001, -0.5500002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall31" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 10.45, 23.300001, -0.5500002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteDoubleWindow21" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.45, 5.8, -4.050002)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow22" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.45, 9.300001, -4.050002)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow23" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.45, 12.8, -4.050002)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow24" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.45, 16.300001, -4.050002)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow25" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.45, 19.800001, -4.050002)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow26" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.4500003, 23.3, -4.05)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteWall32" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.45, 2.3000002, -4.050002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall33" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 2.3000002, -0.5500021)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall34" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 5.7999997, -0.5500021)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall35" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 9.3, -0.5500021)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall36" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 12.8, -0.5500021)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall37" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 16.3, -0.5500021)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall38" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 19.800001, -0.5500021)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall39" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 23.300001, -0.5500021)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall40" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 2.3000002, -7.550002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall41" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 5.7999997, -7.550002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall42" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 9.3, -7.550002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall43" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 12.8, -7.550002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall44" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 16.3, -7.550002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall45" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 19.800001, -7.550002)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall46" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1.3113416e-07, 0, 1, 0, 1, 0, -1, 0, 1.3113416e-07, -6.65, 23.3, -7.55)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
 skeleton = NodePath("../../..")
 
 [node name="ConcreteDoor" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.187, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 2.3, -9.5)
 material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("4_vr2hu")
-skeleton = NodePath("../../..")
-
-[node name="ConcreteSmallWindow1" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.187, 3.542, 0)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("6_v616e")
-skeleton = NodePath("../../..")
-
-[node name="ConcreteDoubleWindow3" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -4.762, 3.542, 0.1496777)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("5_5jxsn")
-skeleton = NodePath("../../..")
-
-[node name="ConcreteDoubleWindow4" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 2.388, 3.542, 0.1496777)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("5_5jxsn")
-skeleton = NodePath("../../..")
-
-[node name="PillarConcrete1" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 1.7801554, 2.3841858e-07, -2.464944)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("7_v616e")
-skeleton = NodePath("../../..")
-
-[node name="Roof" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.6069264, 3.6174772, -2.9950702)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("8_xua1a")
-skeleton = NodePath("../../..")
-
-[node name="PillarConcrete2" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.355, 0, -2.465)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("7_v616e")
-skeleton = NodePath("../../..")
-
-[node name="WallConcrete1" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 2.388, 0, 0.15)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("9_xua1a")
-skeleton = NodePath("../../..")
-
-[node name="WallConcrete2" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -4.762, 0, 0.15)
-material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("9_xua1a")
+mesh = ExtResource("15_0ey7o")
 skeleton = NodePath("../../..")
 
 [node name="ConcreteSmallWindow2" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -1.187, 7.116, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 5.8, -9.5)
 material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("6_v616e")
+mesh = ExtResource("11_ed4hq")
 skeleton = NodePath("../../..")
 
-[node name="ConcreteDoubleWindow5" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, -4.762, 7.116, 0.1496777)
+[node name="ConcreteSmallWindow3" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 9.3, -9.5)
 material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("5_5jxsn")
+mesh = ExtResource("11_ed4hq")
 skeleton = NodePath("../../..")
 
-[node name="ConcreteDoubleWindow6" type="MeshInstance3D" parent="Scene3d/Building1"]
-transform = Transform3D(0.014, 0, 0, 0, 0.014, 0, 0, 0, 0.014, 2.388, 7.116, 0.1496777)
+[node name="ConcreteSmallWindow4" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 12.8, -9.5)
 material_override = ExtResource("3_6yqwl")
-mesh = ExtResource("5_5jxsn")
+mesh = ExtResource("11_ed4hq")
 skeleton = NodePath("../../..")
+
+[node name="ConcreteSmallWindow5" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 16.3, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("11_ed4hq")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteSmallWindow6" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 19.8, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("11_ed4hq")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteSmallWindow7" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.9, 23.3, -9.5)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("11_ed4hq")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteDoubleWindow2" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.400001, 5.8, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow27" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.400001, 9.300001, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow28" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.400001, 12.8, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow29" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.400001, 16.300001, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow30" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.400001, 19.800001, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow31" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.4, 23.3, 1.1999999)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteWall49" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.900001, 2.3000002, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall65" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.9000006, 2.3000002, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall50" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 5.4000006, 2.3000002, 1.2)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteDoubleWindow32" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5999991, 5.8, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow33" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5999991, 9.300001, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow34" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5999991, 12.8, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow35" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5999991, 16.300001, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow36" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5999991, 19.800001, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteDoubleWindow37" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5999991, 23.3, 1.2)
+mesh = ExtResource("9_101os")
+skeleton = NodePath("../..")
+surface_material_override/0 = ExtResource("3_6yqwl")
+
+[node name="ConcreteWall51" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -1.5999991, 2.3000002, 1.2)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall52" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.900001, 5.7999997, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall53" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.900001, 9.3, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall54" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.900001, 12.8, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall55" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.900001, 16.3, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall56" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.900001, 19.800001, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall57" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 8.9, 23.3, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall58" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.0999994, 2.3000002, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall59" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.0999994, 5.7999997, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall60" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.0999994, 9.3, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall61" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.0999994, 12.8, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall62" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.0999994, 16.3, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall63" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.0999994, 19.800001, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteWall64" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -5.0999994, 23.300001, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_0gm3u")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteSmallWindow8" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.9000009, 5.8, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("11_ed4hq")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteSmallWindow9" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.9000009, 9.3, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("11_ed4hq")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteSmallWindow10" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.9000009, 12.8, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("11_ed4hq")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteSmallWindow11" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.9000009, 16.3, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("11_ed4hq")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteSmallWindow12" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.9000009, 19.8, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("11_ed4hq")
+skeleton = NodePath("../../..")
+
+[node name="ConcreteSmallWindow13" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 1.9000009, 23.3, 1.4)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("11_ed4hq")
+skeleton = NodePath("../../..")
+
+[node name="PillarConcrete1" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.7999997, 2.3, -11.7)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("16_6we36")
+skeleton = NodePath("../../..")
+
+[node name="PillarConcrete2" type="MeshInstance3D" parent="Scene3d/Building1"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.025, 2.3, -11.7)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("16_6we36")
+skeleton = NodePath("../../..")
+
+[node name="Surface" type="CSGCombiner3D" parent="Scene3d"]
+use_collision = true
+
+[node name="Rails1" type="CSGBox3D" parent="Scene3d/Surface"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 1.1749985, 0, 15.974999)
+size = Vector3(3.6, 1.1, 18)
+material = ExtResource("2_ed4hq")
+
+[node name="Rails3" type="CSGBox3D" parent="Scene3d/Surface"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -16.825003, 0, 15.974999)
+size = Vector3(3.6, 1.1, 18)
+material = ExtResource("2_ed4hq")
+
+[node name="Rails2" type="CSGBox3D" parent="Scene3d/Surface"]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 19.175, 0, 15.974999)
+size = Vector3(3.6, 1.1, 18)
+material = ExtResource("2_ed4hq")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Scene3d/Surface"]
+size = Vector3(100, 1.1, 100)
+material = ExtResource("9_6we36")
+
+[node name="Tramvai" type="MeshInstance3D" parent="Scene3d"]
+transform = Transform3D(-5.6824803e-08, 0, -1.3, 0, 1.3, 0, 1.3, 0, -5.6824803e-08, -1.1249988, 0.57717574, 15.925)
+material_override = ExtResource("3_101os")
+mesh = ExtResource("4_ed4hq")
+skeleton = NodePath("../../WorldEnvironment")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_f8w8m")
 camera_attributes = SubResource("CameraAttributesPractical_qo5hu")
 
 [node name="Sun3" type="DirectionalLight3D" parent="WorldEnvironment"]
-transform = Transform3D(-0.8191519, 0.4568708, -0.34678382, 1.8315284e-08, 0.60459924, 0.7965298, 0.5735764, 0.65247905, -0.49525872, -4.86868, 8.33126, 2.18251)
+transform = Transform3D(-0.819152, 0.45687082, -0.3467839, 1.8315287e-08, 0.60459924, 0.7965298, 0.5735765, 0.65247905, -0.49525866, -4.817671, 8.33126, 2.18251)
 light_color = Color(0.9999997, 0.9412248, 0.88408417, 1)
-light_energy = 0.75
+light_energy = 0.4
 shadow_enabled = true
+shadow_bias = 0.05
 
 [node name="PlayerController" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1.6, -15.200001)
 script = ExtResource("10_3sqfs")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="PlayerController"]
@@ -218,6 +831,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="CameraEffect" type="ColorRect" parent="UI"]
+visible = false
 material = ExtResource("14_0ey7o")
 layout_mode = 1
 anchors_preset = 15
@@ -375,3 +989,8 @@ script = ExtResource("1_4tuta")
 
 [node name="GameState" type="Node" parent="."]
 script = ExtResource("16_rxh3l")
+
+[node name="BrickDoor" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -11.400001, 2.3, -0.3)
+material_override = ExtResource("3_6yqwl")
+mesh = ExtResource("20_d7c4s")

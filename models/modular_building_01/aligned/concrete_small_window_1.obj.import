@@ -1,0 +1,25 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://cfqp4et8t17ka"
+path="res://.godot/imported/concrete_small_window_1.obj-947296482487817ee7ad27b2d05a799d.mesh"
+
+[deps]
+
+files=["res://.godot/imported/concrete_small_window_1.obj-947296482487817ee7ad27b2d05a799d.mesh"]
+
+source_file="res://models/modular_building_01/aligned/concrete_small_window_1.obj"
+dest_files=["res://.godot/imported/concrete_small_window_1.obj-947296482487817ee7ad27b2d05a799d.mesh", "res://.godot/imported/concrete_small_window_1.obj-947296482487817ee7ad27b2d05a799d.mesh"]
+
+[params]
+
+generate_tangents=true
+generate_lods=true
+generate_shadow_mesh=true
+generate_lightmap_uv2=false
+generate_lightmap_uv2_texel_size=0.2
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+force_disable_mesh_compression=false

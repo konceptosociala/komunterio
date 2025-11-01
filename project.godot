@@ -26,6 +26,10 @@ project/assembly_name="Komunterio"
 
 enabled=PackedStringArray("res://addons/debug_menu/plugin.cfg", "res://addons/instant-realistic-light/plugin.cfg")
 
+[filesystem]
+
+import/blender/enabled=false
+
 [input]
 
 move_left={
