@@ -1,0 +1,7 @@
+[gd_resource type="PanoramaSkyMaterial" load_steps=2 format=3 uid="uid://cc8qfcwww3pw0"]
+
+[ext_resource type="Texture2D" uid="uid://b6grcberkcgjm" path="res://textures/skyboxes/sky_stormy03_hdr.exr" id="1_fyv80"]
+
+[resource]
+panorama = ExtResource("1_fyv80")
+energy_multiplier = 1.25

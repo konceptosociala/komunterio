@@ -4,3 +4,4 @@ Some assets, which are used in the game, made by:
 * andrea.notarstefano
 * ambientCG
 * Poly Heaven
+* Mehdi Shahsavan

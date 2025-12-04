@@ -20,6 +20,8 @@ public partial class PlayerController : CharacterBody3D
 	public override void _Input(InputEvent @event)
 	{
 		if (Blocked) return;
+
+		// if (@event is )
 		
 		if (@event is InputEventMouseMotion motion)
 		{

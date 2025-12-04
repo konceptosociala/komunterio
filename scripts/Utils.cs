@@ -3,15 +3,22 @@ using System;
 
 public partial class Utils : Node
 {	
-	// Called when the node enters the scene tree for the first time.
+
+	[Export] 
+	public Label fpsLabel;
+
 	public override void _Ready()
 	{
 		ProcessMode = ProcessModeEnum.Always;
 	}
 
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
 	public override void _Process(double delta)
-	{
+	{		
+		if (fpsLabel != null)
+		{
+			fpsLabel.Text = $"FPS: {Engine.GetFramesPerSecond()}";
+		}
+
 		if (Input.IsActionJustPressed("pause"))
 		{
 			if (GetTree().Paused)
